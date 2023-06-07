@@ -12,10 +12,7 @@ tag = str(input('Qual é o seu tag: '))
 print('FAZENDO A LEITURA......')
 sleep(2)
 
-if placa == 'KNO0F84':
+if placa == 'KNO0F84' or tag == '0584':
   print('Acesso liberado!')
 else:
-  if tag == '0584':
-    print('Acesso Liberado!')
-  else:
-    print('Acesso Negado!')
+  print('Acesso Negado!')
