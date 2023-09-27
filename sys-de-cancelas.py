@@ -6,13 +6,17 @@ print(f'{dtl1}\n{dtl2}Sistema de Canelas\n{dtl1}')
 print()
 sleep(1)
 
+acesso = False
 
-placa = str(input('Qual é a sua placa: ')).upper()
-tag = str(input('Qual é o seu tag: '))
-print('FAZENDO A LEITURA......')
-sleep(2)
+while not acesso:
+    placa = str(input('Qual é a sua placa: ')).upper()
+    tag = str(input('Qual é o seu tag: '))
 
-if placa == 'KNO0F84' or tag == '0584':
-  print('Acesso liberado!')
-else:
-  print('Acesso Negado!')
+    print('FAZENDO A LEITURA......')
+    sleep(1)
+
+    if placa == 'KNO0F84' or tag == '0584':
+        acesso = True
+        print('Acesso liberado!')
+    else:
+        print('Acesso Negado!\nTente Novamente!')
