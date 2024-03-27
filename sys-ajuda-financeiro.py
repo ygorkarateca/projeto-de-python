@@ -1,34 +1,38 @@
 from time import sleep
+from prettytable import PrettyTable as pt
+import os
 
 # gráfico básico
-caracteres = ("-=-" * 12)
-espaco = (" " * 10)
-print(f"{caracteres}\n{espaco}Sistema bancário\n{caracteres}")
+minha_tabela = pt(["-", "Saldo", "Depositar", "Sacar", "Sair"])
+minha_tabela.add_row(["Opções", "1", "2", "3", "4"])
+print(minha_tabela)
+opcao = input("Escolha opção desejada: ")
 sleep(1)
-print(' ')
+print()
+
+# Limpa o terminal
+os.system('cls')
 
 # Informação do salário do cliente
 salario_cliente = float(input("Informe seu salário: "))
 
-while salario_cliente < 0:
-    if
 
-    # Código de opções para o cliente
-        opcao = print("Digite a opção desejada:\n|[1]Depositar|\n|[2]Sacar|\n|[3]Saldo|\n|[4]Sair|")
-        
-    # Código para opção de depositar
-        depoitar = salario_cliente + ...
+while opcao >= 3:
 
-    # Código para a opção de sacar
-        sacar = salario_cliente - ...
-
+        # Opção de visualizar o saldo
         if opcao == 1:
-            pass
-        elif opcao == 2:
-            pass
-        elif opcao == 3:
             print(f"Saldo atual: {salario_cliente}")
+
+        # Opção de deposito
+        elif opcao == 2:
+            depoitar_dinheiro = salario_cliente + ...
+
+        # Opção de saque
+        elif opcao == 3:
+            sacar_dinheiro = salario_cliente - ...
+            
+        # Opção de sair
         else:
-            print("Opcão invalida!")
-    else:
-        print("Operação Encerrada!\n Volte sempre!")
+            print("Saindo...")
+else:
+    print("Operação Encerrada \nVolte sempre!")
