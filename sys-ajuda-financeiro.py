@@ -21,20 +21,27 @@ print()
 # Limpa o terminal
 os.system('cls')
 
-# Opção de visualizar o saldo
-if opcao == "1":
-    print(f"Saldo atual: {salario_cliente}")
+while opcao != "5":
 
-# Opção de Depositar
-elif opcao == "2":
-   depositar = float(input("Qual valor para o deposito? "))
-   print(f"Você depositou: R${depositar}\nSaldo atual: R${salario_cliente + depositar}")
+    # Opção de visualizar o saldo
+    if opcao == "1":
+        print(f"Saldo atual: {salario_cliente}")
 
-# Opção de Sacar
-elif opcao == "3":
-   sacar = float(input("Qual valor do saque? "))
-   print(f"Você sacou: R${sacar}\nSaldo atual: R${salario_cliente - sacar}")
+    # Opção de Depositar
+    elif opcao == "2":
+        depositar = float(input("Qual valor para o deposito? "))
+        print(f"Você depositou: R${depositar}\nSaldo atual: R${salario_cliente + depositar}")
 
-# Opção de sair
+    # Opção de Sacar
+    elif opcao == "3":
+        sacar = float(input("Qual valor do saque? "))
+        print(f"Você sacou: R${sacar}\nSaldo atual: R${salario_cliente - sacar}")
+
+    # Opção de sair
+    else:
+        sair_ou_nao = str(input('Você deseja sair?\n Digite [S]sim ou [N]ão: ')).lower()
+        if sair_ou_nao == "s":
+            print('Você saiu')
+            break
 else:
-    print("Você saiu!")
+    print('teste')
