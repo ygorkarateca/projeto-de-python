@@ -6,12 +6,6 @@ import os
 # Informação do salário do cliente
 salario_cliente = float(input("Informe seu salário: "))
 
-# Variavel para saque
-sacar_dinheiro = sacar - salario_cliente
-
-# Variavel para deposito
-depositar_dinheiro = depositar + salario_cliente
-
 
 # Limpa o terminal
 os.system('cls')
@@ -33,11 +27,13 @@ if opcao == "1":
 
 # Opção de Depositar
 elif opcao == "2":
-    print(f"Você depositou: R${depositar_dinheiro}\nSaldo atual: R${salario_cliente}")
+   depositar = float(input("Qual valor para o deposito? "))
+   print(f"Você depositou: R${depositar}\nSaldo atual: R${salario_cliente + depositar}")
 
 # Opção de Sacar
 elif opcao == "3":
-    print(f"Você sacou: R${sacar_dinheiro}\nSaldo atual: R${salario_cliente}")
+   sacar = float(input("Qual valor do saque? "))
+   print(f"Você sacou: R${sacar}\nSaldo atual: R${salario_cliente - sacar}")
 
 # Opção de sair
 else:
