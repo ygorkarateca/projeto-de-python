@@ -8,7 +8,7 @@ import os
 limite = 500
 extrato = ""
 numero_saque = 0
-LIMITE_SAQUE = 5
+LIMITE_SAQUE = 3
 
 
 # Informação do salário do cliente
@@ -23,18 +23,18 @@ minha_tabela = pt(["-", "Saldo", "Depositar", "Sacar", "Extrato", "Sair"])
 minha_tabela.add_row(["Opções", "1", "2", "3", "4", "5"])
 print(minha_tabela)
 sleep(1)
-print()
 
 
 while True:
 
     opcao = input("Escolha opção desejada: ")
     # Limpa o terminal
-    # os.system('cls')
-
+    os.system('cls')
+    
     # Opção de visualizar o saldo
     if opcao == "1":
         print(f"Saldo atual: {salario_cliente:.2f}")
+
 
     # Opção de Depositar
     elif opcao == "2":
@@ -42,7 +42,7 @@ while True:
         
         if depositar > 0:
             salario_cliente += depositar
-            extrato += f"Depósito = R$:{depositar:.2f}\n"
+            extrato += f"Depósito: R${depositar:.2f}\n"
             print(f"Você depositou: R${depositar}\nSaldo atual: R${salario_cliente + depositar:.2f}")
 
         else:
@@ -57,8 +57,21 @@ while True:
         excedeu_limite = sacar > limite
 
         excedeu_saques = numero_saque >= LIMITE_SAQUE
+        
+        if excedeu_saldo:
+            print("Erro - Saldo insuficiente!")
+        
+        elif excedeu_limite:
+            print("Erro - Limite de saque excedido!")
+        
+        elif excedeu_saques:
+            print("Erro - Número máximo de saque excedido!")
 
-        print(f"Você sacou: R${sacar}\nSaldo atual: R${salario_cliente - sacar:.2f}")
+        elif sacar > 0:
+            salario_cliente -= sacar
+            extrato += f"Saque: R${sacar:.2f}\n"
+            numero_saque += 1
+            print(f"Você sacou: R${sacar}\nSaldo atual: R${salario_cliente - sacar:.2f}")
 
     # Opção do Extrato
     elif opcao == "4":
