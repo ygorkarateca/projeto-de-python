@@ -5,7 +5,6 @@ import os
 
 # Condições para o código
 
-saldo = 0
 limite = 500
 extrato = ""
 numero_saque = 0
@@ -31,7 +30,7 @@ while True:
 
     opcao = input("Escolha opção desejada: ")
     # Limpa o terminal
-    os.system('cls')
+    # os.system('cls')
 
     # Opção de visualizar o saldo
     if opcao == "1":
@@ -41,8 +40,9 @@ while True:
     elif opcao == "2":
         depositar = float(input("Qual valor para deposito? "))
         
-        if valor > 0:
-            saldo += valor
+        if depositar > 0:
+            salario_cliente += depositar
+            extrato += f"Depósito = R$:{depositar:.2f}\n"
             print(f"Você depositou: R${depositar}\nSaldo atual: R${salario_cliente + depositar:.2f}")
 
         else:
@@ -51,13 +51,21 @@ while True:
     # Opção de Sacar
     elif opcao == "3":
         sacar = float(input("Qual valor do saque? "))
+        
+        excedeu_saldo = sacar > salario_cliente
+
+        excedeu_limite = sacar > limite
+
+        excedeu_saques = numero_saque >= LIMITE_SAQUE
+
         print(f"Você sacou: R${sacar}\nSaldo atual: R${salario_cliente - sacar:.2f}")
 
+    # Opção do Extrato
+    elif opcao == "4":
+        pass
+
     # Opção de sair
+    elif opcao == "5":
+        break
     else:
-        sair_ou_nao = str(input('Você deseja sair?\nDigite [S]sim ou [N]ão: ')).lower()
-        if sair_ou_nao == "s":
-            print('Você saiu')
-            break
-else:
-    print('teste')
+        print('Opção escolhida não é valida!\nSelecione outra opção')
