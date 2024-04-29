@@ -1,4 +1,4 @@
-from PySimpleGUI import PySimpleGUI as pg
+A = int(input())
+B = int(input())
 
-
-sg.theme('Topanga')
+print("SOMA =", A + B)
