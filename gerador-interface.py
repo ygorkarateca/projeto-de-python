@@ -1,4 +1,5 @@
-A = int(input())
-B = int(input())
+n = 3.14159
+raio = float(input())
+area = n * (raio ** 2)
 
-print("SOMA =", A + B)
+print(f"A={area:.4f}")
