@@ -1,16 +1,22 @@
 import os
 
+def desligar_pc():
 
-while True:
+    while True:
 
-    start = str(input('Deseja executar o shutdown - [S/N]: ')).upper()
+        start = str(input('Deseja executar o shutdown - [S/N]: ')).upper()
 
-    if start == "S":
-        segundos = int(input('Quantos segundos? '))
-        os.system(f"shutdown -s -t {segundos}")
-    elif start == "N":
-        os.system("shutdown -a")
-    else:
-        print('Digite um comando válido - [S ou N]: ')
-        break
+        if start == "S":
+            horas = int(input('Em quantas horas você quer desligar? '))
+            os.system(f"shutdown -s -t {horas * 3600}")
+            print('Agendamento feito com sucesso!')
 
+        elif start == "N":
+            os.system("shutdown -a")
+            print('Impedimento feito com sucesso!')
+
+        elif start != "S" or "N":
+            print('Programa Encerrado!')
+            break
+
+desligar_pc()
