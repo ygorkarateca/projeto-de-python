@@ -1,10 +1,11 @@
 import os
+from PrettyTable import prettytable as pt
 
 def desligar_pc():
 
     while True:
 
-        start = str(input('Deseja executar o shutdown - [S/N]: ')).upper()
+        start = str(input('Deseja executar o shutdown? - [S/N]: ')).upper()
 
         if start == "S":
             horas = int(input('Em quantas horas você quer desligar? '))
